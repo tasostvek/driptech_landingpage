@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/landingpage', {
     useNewUrlParser:true,
     useUnifiedTopology: true
 })
-.then(() => console.log('Database Connected!' ))
+.then(() => console.log('Connected to MongoDB!' ))
 .catch(err => console.log( err ));
 
 //DB schema
@@ -44,7 +44,7 @@ newEmail.save((error)=>{
         console.log("We have an error...");
     }
     else{
-        console.log("Date has been saved to MongoDB");
+        console.log(`Email ${data.email} has been saved to MongoDB`);
     }
 });
 

@@ -17,7 +17,7 @@ body{
 .container{
   width: 100%;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -42,16 +42,60 @@ body{
 }
 .countd{
   display:inline-block;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border: 2px solid;
   margin: 0 30px;
-  font-size: 12px;
+  font-size: 16px;
   border-radius: 50%;
   overflow: hidden;
 }
 .countd span{
   display: block;
-  font-size: 26px;
-  margin-top: 14px;
+  font-size: 36px;
+  margin-top: 16px;
 }
+
+.footer{
+  bottom:0;
+  left:0;
+  right:0;
+  position: absolute;;
+
+}
+
+.footer-icon{
+  margin-left:10px;
+  margin-right:10px;
+  font-size:30px;
+  color:#5bace8;
+}
+
+.copyright-footer{
+  vertical-align: top;
+}
+
+a{
+  color: inherit;
+}
+
+.notifyButton{
+  font-family: "Montserrat", sans-serif;
+  height: 35px;
+  margin-left: 10px;
+  background-color:black;
+  color:white;
+  font-weight: bold;
+  font-size:16px;
+  border-radius:4px;
+}
+
+.emailInput{
+  font-weight: bold;
+  border-radius:4px;
+  border-color: black;
+  height: 30px;
+  text-indent: 10px;
+  width: 250px;
+}
+

@@ -2,12 +2,14 @@
 const express = require('express');
 const mongoose = require('mongoose')
 const morgan = require('morgan');
-const path = require('path');
 require('dotenv').config();
+const cors = require('cors');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3030;
 
+const routes = require('./routes/api');
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/landingpage', {
     useNewUrlParser:true,
@@ -16,57 +18,17 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/landingpage', {
 .then(() => console.log('Connected to MongoDB!' ))
 .catch(err => console.log( err ));
 
-//DB schema
-const Schema = mongoose.Schema;
-const EmailSchema = new Schema({
-    email: String,
-    date: {
-        type:String,
-        default:Date()
-    }
-});
+
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
 
-//Model
-const EmailEntry = mongoose.model('EmailEntry', EmailSchema);
 
 
-//Save data to MongoDB
-const data = {
-    email: 'test@gmail.com'
-};
-
-//Instance of model
-const newEmail = new EmailEntry(data);
-
-newEmail.save((error)=>{
-    if(error){
-        console.log("We have an error...");
-    }
-    else{
-        console.log(`Email ${data.email} has been saved to MongoDB`);
-    }
-});
-
-
+app.use(cors());
 //HTTP request logger
 app.use(morgan('tiny'));
+app.use('/api', routes);
 
-
-app.get('/', (req,res) => {
-    const data = {
-        name: 'driptech',
-        year:'2020'
-    }
-    res.json(data);
-});
-
-app.get('/api/name', (req,res) => {
-    const data = {
-        name: 'newApp',
-        year:'2021'
-    }
-    res.json(data);
-});
 
 app.listen(PORT, console.log(`Server is running at port ${PORT}`));

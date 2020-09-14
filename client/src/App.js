@@ -1,13 +1,92 @@
 import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import {FaFacebook, FaInstagram, FaTwitter} from "react-icons/fa";
+import axios from 'axios';
 
-function App() {
-    const count= new Date("September 30 2020, 00:00:00").getTime();
+class App extends React.Component{
+  state = {
+    email: ''
+  };
 
-    const now = setInterval(function() {
+  handleChange = ({target}) => {
+    const{name, value} = target;
+    this.setState({[name]: value});
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    const payload = {
+      email: this.state.email
+    };
+    
+    axios({
+      url:'/api/save',
+      method:'POST',
+      data: payload
+    })
+    .then(()=>{
+      console.log('Data has been sent to the server');
+      this.resetUserInputs();
+    })
+    .catch(()=>{
+      console.log('Internal server error');
+    })
+
+  };
+
+  resetUserInputs = () => {
+    this.setState({
+      email:''
+    });
+  };
+
+
+  render() {
+
+    console.log('State: ',this.state);
+
+    return (
+      <div className="App">
+        <div className ="container">
+          <h1>DripTech</h1>
+          <h2>Launching Soon...</h2>
+      
+          <div className ="count">
+              <div className ="countd">
+                  <span id="days">00</span>
+                  DAYS
+              </div>
+              <div className ="countd">
+                  <span id="hours">00</span>
+                  HOURS
+              </div>
+              <div className ="countd">
+                  <span id="minutes">00</span>
+                  MINUTES
+              </div>
+              <div className ="countd">
+                  <span id="seconds">00</span>
+                  SECONDS
+              </div>
+          </div>
+          <form onSubmit={this.handleSubmit}>
+            <input className="emailInput" placeholder="Email Address" 
+                  value={this.state.email} onChange={this.handleChange} name="email"/>
+            <button className="notifyButton">Notify Me</button>
+          </form>
+        </div>
+        <Footer/>
+      </div> 
+    );
+  }
+}
+
+const count= new Date("September 30 2020, 00:00:00").getTime();
+const now = setInterval(function() {
         const now = new Date().getTime();
-        const timeLeft = count-now;
+        const timeLeft = count - now;
 
         const days = Math.floor(timeLeft/(1000*60*60*24));
         const hours = Math.floor((timeLeft%(1000*60*60*24))/(1000*60*60));
@@ -22,37 +101,26 @@ function App() {
         /*if(timeLeft >= 0){
             clearInteveral(x);
         }*/
-    }, 1000);
-  return (
-    <div className="App">
-      <div class="container">
-        <h1>DripTech</h1>
-        <h2>Launching Soon...</h2>
-    
-        <div class="count">
-            <div class ="countd">
-                <span id="days">00</span>
-                DAYS
-            </div>
-            <div class ="countd">
-                <span id="hours">00</span>
-                HOURS
-            </div>
-            <div class ="countd">
-                <span id="minutes">00</span>
-                MINUTES
-            </div>
-            <div class ="countd">
-                <span id="seconds">00</span>
-                SECONDS
-            </div>
-        </div>
-        <div>
-          <input placeholder="Email Address"/>
-        </div>
+}, 1000);
+
+const Footer = () =>{
+  return(
+      <div className='footer'>
+          <a rel="noopener noreferrer" href = "https://www.facebook.com" target="_blank">
+              <FaFacebook className='footer-icon'/>
+          </a>
+          <a rel="noopener noreferrer" href = "https://www.instagram.com/driptech.official/" target="_blank">
+              <FaInstagram  className='footer-icon'/>
+          </a>
+          <a rel="noopener noreferrer" href = "https://www.twitter.com" target="_blank">
+              <FaTwitter className='footer-icon'/> 
+          </a>
+          <p className="copyright-footer">2020 © DripTech LLC. All rights reserved.</p>
       </div>
-    </div>
-    
+      /*For Linkedin
+        <a rel="noopener noreferrer" href = "https://www.linkedin.com" target="_blank">
+              <FaLinkedin className='footer-icon'/>
+        </a>*/
   );
 }
 

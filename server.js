@@ -23,10 +23,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 
+if(process.env.NODE_ENV == 'production'){
+    app.use(express.static('client/build'));
+    
+}
 
 
 app.use(cors());
-//HTTP request logger
 app.use(morgan('tiny'));
 app.use('/api', routes);
 

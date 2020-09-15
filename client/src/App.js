@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import {FaFacebook, FaInstagram, FaTwitter} from "react-icons/fa";
 import axios from 'axios';
+import ReactGa from 'react-ga';
 
 class App extends React.Component{
-  state = {
-    email: ''
-  };
+  
+  constructor(){
+    super();
+    this.state = {
+      name:'',
+      email: ''
+    };
+    ReactGa.initialize('UA-178009502-1');
+    ReactGa.pageview('/');
+  }
+
 
   handleChange = ({target}) => {
     const{name, value} = target;
@@ -18,6 +27,7 @@ class App extends React.Component{
     event.preventDefault();
 
     const payload = {
+      name: this.state.name,
       email: this.state.email
     };
     
@@ -38,6 +48,7 @@ class App extends React.Component{
 
   resetUserInputs = () => {
     this.setState({
+      name:'',
       email:''
     });
   };
@@ -49,6 +60,7 @@ class App extends React.Component{
 
     return (
       <div className="App">
+        <img src="/images/background.jpg"/>
         <div className ="container">
           <h1>DripTech</h1>
           <h2>Launching Soon...</h2>
@@ -72,6 +84,8 @@ class App extends React.Component{
               </div>
           </div>
           <form onSubmit={this.handleSubmit}>
+            <input className="emailInput" placeholder="Name" 
+                  value={this.state.name} onChange={this.handleChange} name="name"/>
             <input className="emailInput" placeholder="Email Address" 
                   value={this.state.email} onChange={this.handleChange} name="email"/>
             <button className="notifyButton">Notify Me</button>

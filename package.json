@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
-    "heroku-postbuild":"npm run install-client && npm run build",
+    "heroku-postbuild": "npm run install-client && npm run build",
     "start": "node server.js",
     "client": "cd client && npm start",
     "dev": "concurrently -n 'server,client' -c 'magenta,green' \"nodemon server.js\" \"npm run client\""
@@ -23,6 +23,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.10.5",
     "morgan": "^1.10.0",
+    "react-ga": "^3.1.2",
     "react-icons": "^3.11.0"
   }
 }

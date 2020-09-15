@@ -33,13 +33,4 @@ router.post('/save', (req,res) => {
     })
 });
 
-router.get('/name', (req,res) => {
-
-    const data = {
-        name: 'newApp',
-        year:'2021'
-    }
-    res.json(data);
-});
-
 module.exports = router;

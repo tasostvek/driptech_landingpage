@@ -63,7 +63,7 @@ class App extends React.Component{
         <img src="/images/background.jpg"/>
         <div className ="container">
           <h1>DripTech</h1>
-          <h2>Launching Soon...</h2>
+          <h2>Launching Soon....</h2>
       
           <div className ="count">
               <div className ="countd">

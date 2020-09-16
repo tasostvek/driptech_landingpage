@@ -1,12 +1,10 @@
-import React, {useEffect} from 'react';
-//import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import {FaFacebook, FaInstagram, FaTwitter} from "react-icons/fa";
 import axios from 'axios';
 import ReactGa from 'react-ga';
 
 class App extends React.Component{
-  
   constructor(){
     super();
     this.state = {
@@ -30,19 +28,25 @@ class App extends React.Component{
       name: this.state.name,
       email: this.state.email
     };
-    
-    axios({
-      url:'/api/save',
-      method:'POST',
-      data: payload
-    })
-    .then(()=>{
-      console.log('Data has been sent to the server');
-      this.resetUserInputs();
-    })
-    .catch(()=>{
-      console.log('Internal server error');
-    })
+    if(this.state.name !== "" && this.state.email !== ""){
+      console.log('Fields are filled');
+      axios({
+        url:'/api/save',
+        method:'POST',
+        data: payload
+      })
+      .then(()=>{
+        console.log('Data has been sent to the server');
+        this.resetUserInputs();
+      })
+      .catch(()=>{
+        console.log('Internal server error');
+      })
+    }
+    else{
+      console.log('Name and email are empty');
+      alert('Please enter your name and email before submiting');
+    }
 
   };
 

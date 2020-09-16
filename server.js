@@ -7,11 +7,11 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT /*|| 3030*/;
 
 const routes = require('./routes/api');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/landingpage', {
+mongoose.connect(process.env.MONGODB_URI /*|| 'mongodb://localhost/landingpage'*/, {
     useNewUrlParser:true,
     useUnifiedTopology: true
 })

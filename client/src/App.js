@@ -37,6 +37,7 @@ class App extends React.Component{
       })
       .then(()=>{
         console.log('Data has been sent to the server');
+        alert('Thank you for signing up! We will reach out to you soon with more information about the innovations being created by DripTech!');
         this.resetUserInputs();
       })
       .catch(()=>{

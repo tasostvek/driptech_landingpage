@@ -112,7 +112,7 @@ a{
 }
 
 
-/*For iPhones X*/
+/*For iPhones X
 @media only screen 
 and (min-device-width : 375px) 
 and (max-device-width : 812px)
@@ -169,12 +169,11 @@ and (-webkit-device-pixel-ratio : 3){
     height:650px;
   }
 }
+*/
 
-
-/*For iPhones 6,7,8*/
+/*For iPhones 6,7,8, X and SE 2020*/
 @media only screen 
-and (min-width: 375px) 
-and (max-width: 767px) {
+and (min-width: 375px){
   .container h1{
     text-transform: uppercase;
     font-size: 50px;

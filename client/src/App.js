@@ -4,7 +4,7 @@ import {FaFacebook, FaInstagram, FaTwitter} from "react-icons/fa";
 import axios from 'axios';
 import ReactGa from 'react-ga';
 
-class App extends React.PureComponent{
+class App extends React.Component{
   constructor(){
     super();
     this.state = {
@@ -58,14 +58,10 @@ class App extends React.PureComponent{
     });
   };
 
-
   render() {
-
-    console.log('State: ',this.state);
-
     return (
       <div className="App">
-        <img src="/images/background.jpg"/>
+        <img src="/images/background-min.jpg" data-src="/images/background.jpg"/>
         <div className ="container">
           <h1>DripTech</h1>
           <p>Transforming minority-owned businesses into digital empires</p>
@@ -137,10 +133,6 @@ const Footer = () =>{
           </a>
           <p className="copyright-footer">2020 © DripTech LLC. All rights reserved.</p>
       </div>
-      /*For Linkedin
-        <a rel="noopener noreferrer" href = "https://www.linkedin.com" target="_blank">
-              <FaLinkedin className='footer-icon'/>
-        </a>*/
   );
 }
 

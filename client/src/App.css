@@ -185,8 +185,7 @@ and (max-device-width : 400px){
 
 @media only screen 
 and (min-device-width : 290px)
-and (max-device-width : 354px)
-and (orientation: portrait){
+and (max-device-width : 354px){
   p{
     margin-left: 5px;
     margin-right: 5px;
@@ -257,8 +256,7 @@ and (orientation: portrait){
 
 @media only screen 
 and (min-device-width : 270px)
-and (max-device-width : 290px)
-and (orientation: portrait){
+and (max-device-width : 290px){
   p{
     margin-left: 5px;
     margin-right: 5px;

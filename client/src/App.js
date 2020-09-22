@@ -4,7 +4,7 @@ import {FaFacebook, FaInstagram, FaTwitter} from "react-icons/fa";
 import axios from 'axios';
 import ReactGa from 'react-ga';
 
-class App extends React.Component{
+class App extends React.PureComponent{
   constructor(){
     super();
     this.state = {

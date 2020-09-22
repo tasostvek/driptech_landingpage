@@ -4,7 +4,7 @@ import {FaFacebook, FaInstagram, FaTwitter} from "react-icons/fa";
 import axios from 'axios';
 import ReactGa from 'react-ga';
 
-class App extends React.Component{
+class App extends React.PureComponent{
   constructor(){
     super();
     this.state = {
@@ -61,7 +61,7 @@ class App extends React.Component{
   render() {
     return (
       <div className="App">
-        <img src="/images/background-min.jpg" data-src="/images/background.jpg"/>
+        <img src="/images/background.jpg"/>
         <div className ="container">
           <h1>DripTech</h1>
           <p>Transforming minority-owned businesses into digital empires</p>

@@ -3,6 +3,7 @@ import './App.css';
 import {FaFacebook, FaInstagram, FaTwitter} from "react-icons/fa";
 import axios from 'axios';
 import ReactGa from 'react-ga';
+import { LazyImage } from "react-lazy-images";
 
 class App extends React.PureComponent{
   constructor(){
@@ -61,7 +62,14 @@ class App extends React.PureComponent{
   render() {
     return (
       <div className="App">
-        <img src="/images/background.jpg"/>
+        <LazyImage
+          src="/images/background.jpg"
+          alt="Set sail"
+          placeholder={({ imageProps, ref }) => (
+            <img ref={ref} src="/images/background-min.jpg" alt={imageProps.alt} />
+          )}
+          actual={({ imageProps }) => <img {...imageProps} />}
+        />;
         <div className ="container">
           <h1>DripTech</h1>
           <p>Transforming minority-owned businesses into digital empires</p>

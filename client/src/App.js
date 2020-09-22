@@ -69,7 +69,7 @@ class App extends React.PureComponent{
             <img ref={ref} src="/images/background-min.jpg" alt={imageProps.alt} />
           )}
           actual={({ imageProps }) => <img {...imageProps} />}
-        />;
+        />
         <div className ="container">
           <h1>DripTech</h1>
           <p>Transforming minority-owned businesses into digital empires</p>

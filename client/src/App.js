@@ -94,10 +94,14 @@ class App extends React.PureComponent{
               </div>
           </div>
           <form onSubmit={this.handleSubmit}>
-            <input className="emailInput" placeholder="Name" 
+            <label>
+              <input className="emailInput" placeholder="Name" 
                   value={this.state.name} onChange={this.handleChange} name="name"/>
-            <input className="emailInput" placeholder="Email Address" 
+            </label>
+            <label>
+              <input className="emailInput" placeholder="Email Address" 
                   value={this.state.email} onChange={this.handleChange} name="email"/>
+            </label>
             <button className="notifyButton">Notify Me</button>
           </form>
         </div>

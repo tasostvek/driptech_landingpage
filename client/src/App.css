@@ -193,7 +193,7 @@ and (max-device-width : 354px){
 
   .container h1{
     text-transform: uppercase;
-    font-size: 43px;
+    font-size: 40px;
     margin: 0px;
     letter-spacing: 5px;
   }
@@ -248,9 +248,19 @@ and (max-device-width : 354px){
   .footer-icon{
     margin-left:10px;
     margin-right:10px;
-    font-size:24px;
+    font-size:22px;
     color:#5bace8;
-    margin-bottom: -10px;
+    margin-bottom: -15px;
+  }
+  .notifyButton{
+    font-family: "Montserrat", sans-serif;
+    height: 25px;
+    margin-left: 10px;
+    background-color:black;
+    color:#f0f0f0;
+    font-weight: bold;
+    font-size:14px;
+    border-radius:4px;
   }
 }
 

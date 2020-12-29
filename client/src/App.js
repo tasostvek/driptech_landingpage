@@ -111,7 +111,7 @@ class App extends React.PureComponent{
   }
 }
 
-const count= new Date("December 1 2020, 00:00:00").getTime();
+const count= new Date("March 1 2020, 00:00:00").getTime();
 const now = setInterval(function() {
         const now = new Date().getTime();
         const timeLeft = count - now;
